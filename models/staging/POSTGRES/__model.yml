@@ -1,0 +1,10 @@
+version: 2
+
+models:
+
+  - name: products 
+    config: 
+      contract:
+        enforced: true
+    description: > 
+      Data about all products in demo. columns:

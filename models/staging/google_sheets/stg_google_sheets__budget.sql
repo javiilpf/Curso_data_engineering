@@ -1,19 +1,9 @@
-{{ config(materialized='view') }}  
-with source as (
+{{ config(materialized="view") }}
 
-    select * from {{ source('google_sheets', 'budget') }}
+with
+    source as (select * from {{ source("google_sheets", "budget") }}),
 
-),
+    renamed as (select _row, quantity, month, product_id, _fivetran_synced from source)
 
-renamed as ( select
-        _row,
-        quantity,
-        month,
-        product_id,
-        _fivetran_synced
-
-    from source
-
-)
-
-select * from renamed
+select *
+from renamed

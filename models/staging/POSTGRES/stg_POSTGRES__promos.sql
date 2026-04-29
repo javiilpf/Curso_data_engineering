@@ -1,9 +1,12 @@
-{{ config(materialized='view') }}  
+{{config(materialized='view')}}  
+
+
 with source as (
 
     select * from {{ source('POSTGRES', 'promos') }}
 
 ),
+
 
 renamed as (
     select
