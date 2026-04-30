@@ -1,0 +1,128 @@
+version: 2
+
+models:
+  - name: user
+    config:
+      contract:
+        enforced: true
+    description: >
+      Data about all users in demo.
+    columns:
+      - name: user_id
+        data_tests:
+          - not_null
+          - unique
+        data_type: text
+        constraints:
+          - type: not_null
+        description: >
+          UUID for each unique user on platform
+
+      - name: updated_at
+        data_type: TIMESTAMP_NTZ
+        constraints:
+          - type: not_null
+        description: >
+          Update of budget.
+
+      - name: address_id
+        data_type: TIMESTAMP_NTZ
+        constraints:
+          - type: not_null
+        description: >
+          UUID for each address on platform
+
+      - name: last_name
+        data_type: text
+        constraints:
+          - type: not_null
+        description: >
+          Last name of user
+
+      - name: created_at
+        data_type: TIMESTAMP_NTZ
+        constraints:
+          - type: not_null
+        description: >
+          Creation of user.
+
+      - name: phone_number
+        data_type: number
+        constraints:
+          - type: not_null
+        description: >
+          Phone number of user
+
+      - name: total_orders
+        data_type: number
+        description: >
+          Total amount of each user
+
+      - name: first_name
+        data_type: text
+        constraints:
+          - type: not_null
+        description: >
+          First name of user
+
+      - name: email
+        data_type: text
+        constraints:
+          - type: not_null
+        description: >
+          Email of user
+
+      - name: _fivetran_deleted
+        data_type: TIMESTAMP_TZ
+        description: >
+          Date that the data was deleted
+
+      - name: date_load
+        data_type: TIMESTAMP_TZ
+        constraints:
+          - type: not_null
+        description: >
+          Date that the data was loaded
+
+  - name: promos
+    config:
+      contract:
+        enforced: true
+    description: >
+      Data about all users in demo.
+    columns:
+      - name: promo_id
+        data_tests:
+          - not_null
+        data_type: text
+        constraints:
+          - type: not_null
+          - type: unique
+        description: >
+          UUID for each unique promo on platform.
+
+      - name: discount
+        data_type: number
+        constraints:
+          - type: not_null
+        description: >
+          Discount of the promo.
+
+      - name: status
+        data_type: number
+        constraints:
+          - type: not_null
+        description: >
+          Status of the promo.
+
+      - name: _fivetran_deleted
+        data_type: TIMESTAMP_TZ
+        description: >
+          Date that the data was deleted
+
+      - name: date_load
+        data_type: TIMESTAMP_TZ
+        constraints:
+          - type: not_null
+        description: >
+          Date that the data was loaded

@@ -1,8 +1,8 @@
 version: 2
 
 sources:
-  - name: postgres
-    database: db31_bronze_db
+  - name: POSTGRES
+    database: DB31_BRONZE_DB
     tables:
       - name: addresses
         columns:
