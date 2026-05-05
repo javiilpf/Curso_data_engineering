@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: users
+    config:
+      contract:
+        enforced: true
+    description: >
+      Data about all users in demo.
+    columns:
+      - name: nombre
+        data_tests:
+          - not_null
+          - unique
+        data_type: varchar
+        constraints:
+          - type: not_null
+        description: >
+          user name
+
+      - name: DNI
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        description: >
+          USER DNI DOCUMENT
+
+      - name: EMAIL
+        data_type: text
+        constraints:
+          - type: not_null
+        description: >
+          user email
+
+      - name: FECHA_ALTA_SISTEMA
+        data_type: TIMESTAMP_NTZ
+        constraints:
+          - type: not_null
+        description: >
+          REGISTRATION USER DATE
+
