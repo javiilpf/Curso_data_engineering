@@ -9,9 +9,10 @@ sources:
       schema: false
       identifier: false
     config:
+
       freshness:
         warn_after: {count: 24, period: hour}
-        error_after: {count: 48, period: hour}
+        error_after: {count: 1201, period: day}
 
     tables:
       - name: orders

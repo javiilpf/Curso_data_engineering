@@ -2,37 +2,72 @@ version: 2
 
 models:
   - name: orders
+    
     columns:
       - name: ORDER_ID
         data_type: varchar
+        description: >
+          Id de los pedidos
+          Primary key
+        data_tests:
+          - unique
+          - not_null
       - name: SHIPPING_SERVICE
         data_type: varchar
+        description: >
+          Data about shipping service
       - name: SHIPPING_COST
         data_type: number
+        description: >
+          Data about cost of shipping
       - name: ADDRESS_ID
         data_type: varchar
+        description: >
+          Data about order destination address
       - name: CREATED_AT
         data_type: timestamp_ntz
+        description: >
+          Date about order creation.
       - name: PROMO_ID
         data_type: varchar
+        description: >
+          id promo for order
       - name: ESTIMATED_DELIVERY
         data_type: timestamp_ntz
+        description: >
+          estimated order delivery
       - name: ORDER_COST
         data_type: number
+        description: >
+          order cost
       - name: USER_ID
         data_type: varchar
+        description: >
+          Owner of order.
       - name: ORDER_TOTAL
         data_type: number
+        description: >
+          Data about all users in demo.
       - name: DELIVERED_AT
         data_type: timestamp_ntz
+        description: >
+          Order arrival in destination
       - name: TRACKING_ID
         data_type: varchar
+        description: >
+          order ubication in real time
       - name: STATUS
         data_type: varchar
+        description: >
+          status for order
       - name: _FIVETRAN_DELETED
         data_type: varchar
+        description: >
+          Fivetran deleted.
       - name: _FIVETRAN_SYNCED
         data_type: timestamp_ntz
+        description: >
+          Fivetran synced
 
   - name: adresses
     columns:
