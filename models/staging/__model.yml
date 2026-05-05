@@ -1,0 +1,133 @@
+version: 2
+
+models:
+  - name: orders
+    columns:
+      - name: ORDER_ID
+        data_type: varchar
+      - name: SHIPPING_SERVICE
+        data_type: varchar
+      - name: SHIPPING_COST
+        data_type: number
+      - name: ADDRESS_ID
+        data_type: varchar
+      - name: CREATED_AT
+        data_type: timestamp_ntz
+      - name: PROMO_ID
+        data_type: varchar
+      - name: ESTIMATED_DELIVERY
+        data_type: timestamp_ntz
+      - name: ORDER_COST
+        data_type: number
+      - name: USER_ID
+        data_type: varchar
+      - name: ORDER_TOTAL
+        data_type: number
+      - name: DELIVERED_AT
+        data_type: timestamp_ntz
+      - name: TRACKING_ID
+        data_type: varchar
+      - name: STATUS
+        data_type: varchar
+      - name: _FIVETRAN_DELETED
+        data_type: varchar
+      - name: _FIVETRAN_SYNCED
+        data_type: timestamp_ntz
+
+  - name: adresses
+    columns:
+      - name: address_id
+        data_type: text
+      - name: zipcode
+        data_type: text
+      - name: country
+        data_type: text
+      - name: address
+        data_type: text
+      - name: state
+        data_type: text
+
+  - name: user
+    description: >
+      Data about all users in demo.
+
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: user_id
+        data_type: text
+        description: >
+          UUID for each unique user on platform.
+        data_tests:
+          - not_null
+          - unique
+        constraints:
+          - type: not_null
+
+      - name: updated_at
+        data_type: TIMESTAMP_NTZ
+        description: >
+          Update of budget.
+        constraints:
+          - type: not_null
+
+      - name: address_id
+        data_type: TIMESTAMP_NTZ
+        description: >
+          UUID for each address on platform.
+        constraints:
+          - type: not_null
+
+      - name: last_name
+        data_type: text
+        description: >
+          Last name of user.
+        constraints:
+          - type: not_null
+
+      - name: created_at
+        data_type: TIMESTAMP_NTZ
+        description: >
+          Creation of user.
+        constraints:
+          - type: not_null
+
+      - name: phone_number
+        data_type: number
+        description: >
+          Phone number of user.
+        constraints:
+          - type: not_null
+
+      - name: total_orders
+        data_type: number
+        description: >
+          Total amount of each user.
+
+      - name: first_name
+        data_type: text
+        description: >
+          First name of user.
+        constraints:
+          - type: not_null
+
+      - name: email
+        data_type: text
+        description: >
+          Email of user.
+        constraints:
+          - type: not_null
+
+      - name: _fivetran_deleted
+        data_type: TIMESTAMP_TZ
+        description: >
+          Date that the data was deleted.
+
+      - name: date_load
+        data_type: TIMESTAMP_TZ
+        description: >
+          Date that the data was loaded.
+        constraints:
+          - type: not_null
